@@ -1,0 +1,9 @@
+{
+  "name": "mimic-tube",
+  "version": "0.1.0",
+  "private": true,
+  "description": "우리 영상을 올리고 보는 웹사이트 (영상 플레이어 포함)",
+  "type": "module",
+  "scripts": { "start": "node server.mjs" },
+  "engines": { "node": ">=18" }
+}

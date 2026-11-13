@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>미믹 튜브</title>
+  <link rel="icon" href="/logo.svg">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#/" aria-label="홈">
+      <img src="/logo.svg" alt="" width="30" height="30">
+      <span>미믹 튜브</span>
+    </a>
+    <form class="search" id="searchForm" role="search">
+      <input id="searchInput" type="search" placeholder="영상 검색" aria-label="영상 검색" autocomplete="off">
+      <button type="submit" aria-label="검색">
+        <svg viewBox="0 0 24 24"><path d="M10 4a6 6 0 1 0 3.7 10.7l4.8 4.8 1.4-1.4-4.8-4.8A6 6 0 0 0 10 4Zm0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"/></svg>
+      </button>
+    </form>
+    <button class="btn primary" id="uploadBtn">
+      <svg viewBox="0 0 24 24"><path d="M11 16V7.8l-3.3 3.3-1.4-1.4L12 4l5.7 5.7-1.4 1.4L13 7.8V16h-2Zm-6 4v-5h2v3h10v-3h2v5H5Z"/></svg>
+      <span>업로드</span>
+    </button>
+  </header>
+
+  <main id="app" tabindex="-1"></main>
+
+  <dialog id="uploadDialog">
+    <form id="uploadForm" method="dialog">
+      <h2>영상 업로드</h2>
+      <label class="drop" id="dropZone">
+        <input type="file" id="fileInput" accept="video/*,.mkv" required>
+        <svg viewBox="0 0 24 24"><path d="M11 16V7.8l-3.3 3.3-1.4-1.4L12 4l5.7 5.7-1.4 1.4L13 7.8V16h-2Zm-6 4v-5h2v3h10v-3h2v5H5Z"/></svg>
+        <strong id="dropText">영상 파일을 끌어다 놓거나 눌러서 선택</strong>
+        <small>mp4 · webm · mov · m4v · mkv (최대 4GB)</small>
+      </label>
+      <label>제목<input id="titleInput" maxlength="120" required></label>
+      <label>올린 사람<input id="authorInput" maxlength="40" placeholder="미믹"></label>
+      <label>설명<textarea id="descInput" rows="3" maxlength="5000"></textarea></label>
+      <div class="progress" id="uploadProgress" hidden><div></div><span></span></div>
+      <p class="error" id="uploadError" role="alert"></p>
+      <div class="actions">
+        <button type="button" class="btn" id="uploadCancel">취소</button>
+        <button type="submit" class="btn primary" id="uploadSubmit">올리기</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/player.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
